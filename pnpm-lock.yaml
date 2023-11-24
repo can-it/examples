@@ -11,6 +11,9 @@ importers:
       '@can-it/core':
         specifier: ^0.5.4
         version: 0.5.4
+      '@can-it/operators-nested':
+        specifier: ^0.1.1
+        version: 0.1.1
       '@can-it/operators-relation':
         specifier: ^0.1.2
         version: 0.1.2
@@ -1379,6 +1382,12 @@ packages:
 
   /@can-it/operators-exact@0.0.1:
     resolution: {integrity: sha512-+CggUolWg6KAbRd4WYMzUjRFjIZ9nniKgmMlv2gDGFmpky/xQG8THI9sLadocE6CHIRH5npbpiyXrzSbgjlbMg==}
+    dependencies:
+      '@swc/helpers': 0.5.3
+    dev: false
+
+  /@can-it/operators-nested@0.1.1:
+    resolution: {integrity: sha512-eJ9BAmX1R/Xyc6YVKcoqyuRBTn1CQ2YzP5ZqgxjHahVV6HVIOMgqkYZxP4/+WAOXMJ7t3FOxsYzeemgtn501wQ==}
     dependencies:
       '@swc/helpers': 0.5.3
     dev: false
