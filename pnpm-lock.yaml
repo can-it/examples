@@ -17,6 +17,9 @@ importers:
       '@can-it/operators-relation':
         specifier: ^0.1.2
         version: 0.1.2
+      '@can-it/react':
+        specifier: ^0.0.2
+        version: 0.0.2
       '@swc/helpers':
         specifier: ~0.5.2
         version: 0.5.3
@@ -1558,6 +1561,12 @@ packages:
     resolution: {integrity: sha512-ekf4j+8BSzNLluRda6H1+WRmwm+2smdKCyF3eVngPQWAWWX/yD3IRh1Ug+HhEoQw4sKobVYbuLechwBrAeRR5w==}
     dependencies:
       '@swc/helpers': 0.5.3
+    dev: false
+
+  /@can-it/react@0.0.2:
+    resolution: {integrity: sha512-g4DbM+MfqFYx9O9xXr0r5qDEyntcr6+2Aikyr43gcyJMM8QMvb0ymACwr4J33qGt47pZm3AEP0IwDOqHe2zxuw==}
+    dependencies:
+      '@can-it/core': 0.5.4
     dev: false
 
   /@can-it/types@0.0.1:
