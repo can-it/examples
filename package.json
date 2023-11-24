@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@can-it/core": "^0.5.4",
+    "@can-it/operators-relation": "^0.1.2",
     "axios": "^1.0.0",
     "tslib": "^2.3.0"
   }

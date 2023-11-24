@@ -11,6 +11,9 @@ importers:
       '@can-it/core':
         specifier: ^0.5.4
         version: 0.5.4
+      '@can-it/operators-relation':
+        specifier: ^0.1.2
+        version: 0.1.2
       axios:
         specifier: ^1.0.0
         version: 1.6.2
@@ -1376,6 +1379,12 @@ packages:
 
   /@can-it/operators-exact@0.0.1:
     resolution: {integrity: sha512-+CggUolWg6KAbRd4WYMzUjRFjIZ9nniKgmMlv2gDGFmpky/xQG8THI9sLadocE6CHIRH5npbpiyXrzSbgjlbMg==}
+    dependencies:
+      '@swc/helpers': 0.5.3
+    dev: false
+
+  /@can-it/operators-relation@0.1.2:
+    resolution: {integrity: sha512-ekf4j+8BSzNLluRda6H1+WRmwm+2smdKCyF3eVngPQWAWWX/yD3IRh1Ug+HhEoQw4sKobVYbuLechwBrAeRR5w==}
     dependencies:
       '@swc/helpers': 0.5.3
     dev: false

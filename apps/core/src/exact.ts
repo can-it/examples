@@ -11,7 +11,7 @@ const canIt = new CanIt({
   ]
 });
 
-console.log('Can It with default exact comparator');
+console.log('👉👉 Can It with default Exact comparator');
 console.log(canIt.allowTo('view', 'docs')); // true
 console.log(canIt.allowTo('click', 'docs')); // true
 console.log(canIt.allowTo('delete', 'docs')); // false, because it is appeared in deny list above
