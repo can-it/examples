@@ -29,6 +29,7 @@
     "typescript": "~5.2.2"
   },
   "dependencies": {
+    "@can-it/core": "^0.5.4",
     "axios": "^1.0.0",
     "tslib": "^2.3.0"
   }
