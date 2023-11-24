@@ -35,6 +35,9 @@ importers:
       '@can-it/core':
         specifier: ^0.5.4
         version: 0.5.4
+      '@can-it/ngx':
+        specifier: ^0.4.1
+        version: 0.4.1(@angular/common@17.0.4)(@angular/core@17.0.4)
       '@can-it/operators-nested':
         specifier: ^0.1.1
         version: 0.1.1
@@ -3027,6 +3030,18 @@ packages:
       '@can-it/operators-exact': 0.0.1
       '@can-it/types': 0.0.1
       '@swc/helpers': 0.5.3
+    dev: false
+
+  /@can-it/ngx@0.4.1(@angular/common@17.0.4)(@angular/core@17.0.4):
+    resolution: {integrity: sha512-sgJY/HFcc9sma3Ofc1V83GnXhFdT+cYpv5wG5cBGV1JHXPvaz2NpSkOrL4LM2vV3Pu7AXpbs4djawEUQSbvYYg==}
+    peerDependencies:
+      '@angular/common': ^16.2.0
+      '@angular/core': ^16.2.0
+    dependencies:
+      '@angular/common': 17.0.4(@angular/core@17.0.4)(rxjs@7.8.1)
+      '@angular/core': 17.0.4(rxjs@7.8.1)(zone.js@0.14.2)
+      '@can-it/core': 0.5.4
+      tslib: 2.6.2
     dev: false
 
   /@can-it/operators-exact@0.0.1:
