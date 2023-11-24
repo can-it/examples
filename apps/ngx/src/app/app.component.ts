@@ -1,14 +1,65 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { Component, OnInit } from '@angular/core';
+import { PolicyState } from '@can-it/core';
+import { PolicyStore } from '@can-it/ngx';
+import { Observable, first } from 'rxjs';
 
 @Component({
-  standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'ngx';
+export class AppComponent implements OnInit {
+  title = 'examples';
+  deniedClick = false;
+  allowedView = true;
+  allowedClick = true;
+  currentPolicy$!: Observable<PolicyState>;
+
+  constructor(
+    private policyStore: PolicyStore
+  ) {}
+
+  ngOnInit(): void {
+    this.policyStore.set({
+      allow: [
+        ['click', 'documents'],
+        ['view', 'documents']
+      ]
+    });
+
+    this.currentPolicy$ = this.policyStore.get();
+  }
+
+  toggleClick() {
+    this.allowedClick = !this.allowedClick;
+    this.currentPolicy$.pipe(first()).subscribe(state => {
+      if (this.allowedClick) {
+        this.policyStore.set({ ...state, allow: state.allow.concat([['click', 'documents']]) });
+        return;
+      }
+      this.policyStore.set({ ...state, allow: state.allow.filter(p => p[0] !== 'click') });
+    });
+  }
+
+  toggleView() {
+    this.allowedView = !this.allowedView;
+    this.currentPolicy$.pipe(first()).subscribe(state => {
+      if (this.allowedView) {
+        this.policyStore.set({ ...state, allow: state.allow.concat([['view', 'documents']]) });
+        return;
+      }
+      this.policyStore.set({ ...state, allow: state.allow.filter(p => p[0] !== 'view') });
+    });
+  }
+
+  toggleDenyClick() {
+    this.deniedClick = !this.deniedClick;
+    this.currentPolicy$.pipe(first()).subscribe(state => {
+      if (this.deniedClick) {
+        this.policyStore.set({ ...state, deny: (state.deny || []).concat([['click', 'documents']]) });
+        return;
+      }
+      this.policyStore.set({ ...state, deny: state.deny?.filter(p => p[0] !== 'click') });
+    });
+  }
 }
