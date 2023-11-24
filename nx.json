@@ -30,6 +30,27 @@
           "codeCoverage": true
         }
       }
+    },
+    "@nx/vite:test": {
+      "cache": true,
+      "inputs": ["default", "^default"]
+    }
+  },
+  "generators": {
+    "@nx/react": {
+      "application": {
+        "style": "scss",
+        "linter": "eslint",
+        "bundler": "vite",
+        "babel": true
+      },
+      "component": {
+        "style": "scss"
+      },
+      "library": {
+        "style": "scss",
+        "linter": "eslint"
+      }
     }
   }
 }
