@@ -1,19 +1,26 @@
 import { Module } from '@nestjs/common';
-import { CanItGuard, CanItModule } from '@can-it/nest';
+import { CanItModule } from '@can-it/nest';
 import { PolicyState } from '@can-it/types';
 import { Request } from 'express';
 import { RelationComparator } from '@can-it/operators-relation';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { APP_GUARD } from '@nestjs/core';
+import { CatsModule } from '../features/cats/cats.module';
 
 @Module({
   imports: [
-    CanItModule.register({
+    CanItModule,
+    CatsModule
+  ],
+  controllers: [AppController],
+  providers: [
+    AppService,
+    // configure the can it options
+    ...CanItModule.withProviders({
       comparators: {
         action: new RelationComparator(
-          ['view', 'click'],
-          { click: ['view'] }
+          ['view', 'edit'],
+          { edit: ['view'] }
         )
       },
       resolvers: {
@@ -22,24 +29,18 @@ import { APP_GUARD } from '@nestjs/core';
         policy: (_req: Request): PolicyState => {
           return {
             allow: [
-              ['view', 'cats'],
-              ['click', 'cats']
+              // ['view', 'cats'],
+              ['edit', 'cats']
             ],
             deny: [
-              ['click', 'cats']
+              ['edit', 'cats']
             ]
           }
         }
       }
-    })
-  ],
-  controllers: [AppController],
-  providers: [
-    AppService,
-    {
-      provide: APP_GUARD,
-      useClass: CanItGuard
-    }
+    }),
+    // Register app guard
+    CanItModule.registerAppGuard()
   ],
 })
 export class AppModule {}
