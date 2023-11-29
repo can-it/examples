@@ -36,8 +36,8 @@ importers:
         specifier: ^0.5.4
         version: 0.5.4
       '@can-it/nest':
-        specifier: link:..\core\dist\libs\nest
-        version: link:../core/dist/libs/nest
+        specifier: 0.0.1-4
+        version: 0.0.1-4
       '@can-it/ngx':
         specifier: ^0.4.1
         version: 0.4.1(@angular/common@17.0.4)(@angular/core@17.0.4)
@@ -3122,6 +3122,13 @@ packages:
       '@can-it/operators-exact': 0.0.1
       '@can-it/types': 0.0.1
       '@swc/helpers': 0.5.3
+    dev: false
+
+  /@can-it/nest@0.0.1-4:
+    resolution: {integrity: sha512-QkOxjEP6whHnwLF1WezDahaO0+C3/R6hrEIs7Ok/vhj2ZBiuMZZ4DTQXZHhsl2pWQEL4yxMIyCRRBSWAcMgJDw==}
+    dependencies:
+      '@can-it/core': 0.5.4
+      tslib: 2.6.2
     dev: false
 
   /@can-it/ngx@0.4.1(@angular/common@17.0.4)(@angular/core@17.0.4):

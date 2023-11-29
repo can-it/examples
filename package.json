@@ -2,7 +2,14 @@
   "name": "examples",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "nest:g:s": "npx nx g @nx/nest:service --nameAndDirectoryFormat=as-provided",
+    "nest:g:d": "npx nx g @nx/nest:decorator --nameAndDirectoryFormat=as-provided",
+    "nest:g:m": "npx nx g @nx/nest:middleware --nameAndDirectoryFormat=as-provided",
+    "nest:g:mo": "npx nx g @nx/nest:module --nameAndDirectoryFormat=as-provided",
+    "nest:g:c": "npx nx g @nx/nest:controller --nameAndDirectoryFormat=as-provided",
+    "nest:g:g": "npx nx g @nx/nest:guard --nameAndDirectoryFormat=as-provided"
+  },
   "private": true,
   "devDependencies": {
     "@angular-devkit/build-angular": "~17.0.0",
@@ -78,7 +85,7 @@
     "@angular/platform-browser-dynamic": "~17.0.0",
     "@angular/router": "~17.0.0",
     "@can-it/core": "^0.5.4",
-    "@can-it/nest": "link:..\\core\\dist\\libs\\nest",
+    "@can-it/nest": "0.0.1-4",
     "@can-it/ngx": "^0.4.1",
     "@can-it/operators-nested": "^0.1.1",
     "@can-it/operators-relation": "^0.1.2",
