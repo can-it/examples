@@ -35,6 +35,9 @@ importers:
       '@can-it/core':
         specifier: ^0.5.4
         version: 0.5.4
+      '@can-it/nest':
+        specifier: link:..\core\dist\libs\nest
+        version: link:../core/dist/libs/nest
       '@can-it/ngx':
         specifier: ^0.4.1
         version: 0.4.1(@angular/common@17.0.4)(@angular/core@17.0.4)
