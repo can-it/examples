@@ -24,7 +24,7 @@ import { CatsModule } from '../features/cats/cats.module';
         )
       },
       resolvers: {
-        ri: (req: Request) => req.params.id || req.path.split('/').pop(),
+        ri: (req: Request) => req.params.id || req.path.replace(/\/$/, '').split('/').pop(),
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         policy: (_req: Request): PolicyState => {
           return {
