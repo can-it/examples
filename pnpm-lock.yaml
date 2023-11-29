@@ -89,7 +89,7 @@ importers:
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: ~17.0.0
-        version: 17.0.3(@angular/compiler-cli@17.0.4)(@swc/core@1.3.99)(@types/node@18.14.2)(jest-environment-jsdom@29.7.0)(jest@29.7.0)(stylus@0.59.0)(typescript@5.2.2)
+        version: 17.0.3(@angular/compiler-cli@17.0.4)(@swc/core@1.3.99)(@types/express@4.17.21)(@types/node@18.14.2)(jest-environment-jsdom@29.7.0)(jest@29.7.0)(stylus@0.59.0)(typescript@5.2.2)
       '@angular-devkit/core':
         specifier: ~17.0.0
         version: 17.0.3(chokidar@3.5.3)
@@ -114,6 +114,9 @@ importers:
       '@angular/language-service':
         specifier: ~17.0.0
         version: 17.0.4
+      '@can-it/types':
+        specifier: ^0.0.2
+        version: 0.0.2
       '@nestjs/schematics':
         specifier: ^10.0.1
         version: 10.0.3(typescript@5.2.2)
@@ -171,6 +174,9 @@ importers:
       '@testing-library/react':
         specifier: 14.0.0
         version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
+      '@types/express':
+        specifier: ^4.17.21
+        version: 4.17.21
       '@types/jest':
         specifier: ^29.4.0
         version: 29.5.10
@@ -297,7 +303,7 @@ packages:
       - chokidar
     dev: true
 
-  /@angular-devkit/build-angular@17.0.3(@angular/compiler-cli@17.0.4)(@swc/core@1.3.99)(@types/node@18.14.2)(jest-environment-jsdom@29.7.0)(jest@29.7.0)(stylus@0.59.0)(typescript@5.2.2):
+  /@angular-devkit/build-angular@17.0.3(@angular/compiler-cli@17.0.4)(@swc/core@1.3.99)(@types/express@4.17.21)(@types/node@18.14.2)(jest-environment-jsdom@29.7.0)(jest@29.7.0)(stylus@0.59.0)(typescript@5.2.2):
     resolution: {integrity: sha512-1lx0mERC1eTHX4vf8q7kUHZNHS0jwZxbwYHAISOplwHjkzRociX0W6rx04yMXn2NCSNhK+w3xbWyAIgyYbP9nA==}
     engines: {node: ^18.13.0 || >=20.9.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
     peerDependencies:
@@ -3160,6 +3166,12 @@ packages:
       '@swc/helpers': 0.5.3
     dev: false
 
+  /@can-it/types@0.0.2:
+    resolution: {integrity: sha512-NggiR5DXyDaeww5NORutWXTtS/4jqwhSkFA/IMg7d1HcGNmJXMctU2sqY/Ees3NX0J4v6iKt9La/PyCiFUqMpQ==}
+    dependencies:
+      '@swc/helpers': 0.5.3
+    dev: true
+
   /@colors/colors@1.5.0:
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
     engines: {node: '>=0.1.90'}
@@ -4920,7 +4932,7 @@ packages:
       esbuild:
         optional: true
     dependencies:
-      '@angular-devkit/build-angular': 17.0.3(@angular/compiler-cli@17.0.4)(@swc/core@1.3.99)(@types/node@18.14.2)(jest-environment-jsdom@29.7.0)(jest@29.7.0)(stylus@0.59.0)(typescript@5.2.2)
+      '@angular-devkit/build-angular': 17.0.3(@angular/compiler-cli@17.0.4)(@swc/core@1.3.99)(@types/express@4.17.21)(@types/node@18.14.2)(jest-environment-jsdom@29.7.0)(jest@29.7.0)(stylus@0.59.0)(typescript@5.2.2)
       '@angular-devkit/core': 17.0.3(chokidar@3.5.3)
       '@angular-devkit/schematics': 17.0.3
       '@nrwl/angular': 17.1.3(@angular-devkit/build-angular@17.0.3)(@angular-devkit/core@17.0.3)(@angular-devkit/schematics@17.0.3)(@schematics/angular@17.0.3)(@swc-node/register@1.6.8)(@swc/core@1.3.99)(@types/node@18.14.2)(cypress@13.6.0)(esbuild@0.19.7)(eslint@8.46.0)(nx@17.1.3)(rxjs@7.8.1)(ts-node@10.9.1)(typescript@5.2.2)
@@ -11368,7 +11380,7 @@ packages:
       jest: ^29.0.0
       typescript: '>=4.4'
     dependencies:
-      '@angular-devkit/build-angular': 17.0.3(@angular/compiler-cli@17.0.4)(@swc/core@1.3.99)(@types/node@18.14.2)(jest-environment-jsdom@29.7.0)(jest@29.7.0)(stylus@0.59.0)(typescript@5.2.2)
+      '@angular-devkit/build-angular': 17.0.3(@angular/compiler-cli@17.0.4)(@swc/core@1.3.99)(@types/express@4.17.21)(@types/node@18.14.2)(jest-environment-jsdom@29.7.0)(jest@29.7.0)(stylus@0.59.0)(typescript@5.2.2)
       '@angular/compiler-cli': 17.0.4(@angular/compiler@17.0.4)(typescript@5.2.2)
       '@angular/core': 17.0.4(rxjs@7.8.1)(zone.js@0.14.2)
       '@angular/platform-browser-dynamic': 17.0.4(@angular/common@17.0.4)(@angular/compiler@17.0.4)(@angular/core@17.0.4)(@angular/platform-browser@17.0.4)
