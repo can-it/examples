@@ -9,14 +9,14 @@ export class CatsController {
     { id: 'c2', name: 'tom' }
   ];
 
+  // This method will still be applied the guard from controller CanIt above
   @Get()
-  // @CanIt('view')
   get() {
     return this.cats;
   }
 
   @Get(':id')
-  // @CanIt('view', 'cats')
+  @CanIt('view', 'cats')
   getOne(@Param('id') id: string) {
     return this.cats.find(c => c.id === id);
   }
