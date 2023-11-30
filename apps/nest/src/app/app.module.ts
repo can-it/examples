@@ -6,10 +6,12 @@ import { RelationComparator } from '@can-it/operators-relation';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CatsModule } from '../features/cats/cats.module';
+import { DatabaseModule } from '../integrations/database/database.module';
 
 @Module({
   imports: [
     CanItModule,
+    DatabaseModule,
     CatsModule
   ],
   controllers: [AppController],

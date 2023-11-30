@@ -1,30 +1,29 @@
 import { CanIt } from '@can-it/nest';
 import { Controller, Delete, Get, Param } from '@nestjs/common';
+import { CatsService } from '../../../integrations/database/services/cats.service';
 
 @Controller('cats')
 @CanIt('view')
 export class CatsController {
-  private cats = [
-    { id: 'c1', name: 'kitty' },
-    { id: 'c2', name: 'tom' }
-  ];
+  constructor(
+    private catsService: CatsService
+  ) {}
 
   // This method will still be applied the guard from controller CanIt above
   @Get()
   get() {
-    return this.cats;
+    return this.catsService.getAll();
   }
 
   @Get(':id')
   @CanIt('view', 'cats')
   getOne(@Param('id') id: string) {
-    return this.cats.find(c => c.id === id);
+    return this.catsService.get(id);
   }
 
   @CanIt('delete', 'cats')
   @Delete(':id')
   delete(@Param('id') id: string) {
-    this.cats = this.cats.filter(c => c.id !== id);
-    return this.cats;
+    return this.catsService.delete(id);
   }
 }
