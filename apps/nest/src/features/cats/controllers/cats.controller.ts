@@ -1,5 +1,5 @@
 import { CanIt } from '@can-it/nest';
-import { Controller, Delete, Get, Param } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, ValidationPipe } from '@nestjs/common';
 import { CatsService } from '../../../integrations/database/services/cats.service';
 
 @Controller('cats')
@@ -19,6 +19,12 @@ export class CatsController {
   @CanIt('view', 'cats')
   getOne(@Param('id') id: string) {
     return this.catsService.get(id);
+  }
+
+  @Patch(':id')
+  @CanIt('edit', 'cats')
+  update(@Param('id') id: string, @Body('name') name: string) {
+    return this.catsService.updateName(id, name);
   }
 
   @CanIt('delete', 'cats')

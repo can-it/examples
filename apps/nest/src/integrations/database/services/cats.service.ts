@@ -15,6 +15,18 @@ export class CatsService {
     return this.cats.find(c => c.id === id);
   }
 
+  updateName(id: string, name: string) {
+    this.cats = this.cats.map(cat => {
+      if (cat.id === id) {
+        return { ...cat, name };
+      }
+
+      return cat;
+    });
+
+    return this.cats.find(c => c.id === id);
+  }
+
   delete(id: string) {
     this.cats = this.cats.filter(c => c.id !== id);
     return this.cats;
