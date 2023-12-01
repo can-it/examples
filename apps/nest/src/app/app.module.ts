@@ -7,12 +7,15 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CatsModule } from '../features/cats/cats.module';
 import { DatabaseModule } from '../integrations/database/database.module';
+import { PolicyModule } from '../features/policies/policy.module';
 
 @Module({
   imports: [
     CanItModule,
     DatabaseModule,
-    CatsModule
+
+    CatsModule,
+    PolicyModule
   ],
   controllers: [AppController],
   providers: [
