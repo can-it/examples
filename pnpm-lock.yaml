@@ -36,8 +36,8 @@ importers:
         specifier: ^0.5.4
         version: 0.5.4
       '@can-it/nest':
-        specifier: 0.0.1-4
-        version: 0.0.1-4
+        specifier: 0.0.1-5
+        version: 0.0.1-5
       '@can-it/ngx':
         specifier: ^0.4.1
         version: 0.4.1(@angular/common@17.0.4)(@angular/core@17.0.4)
@@ -3124,8 +3124,8 @@ packages:
       '@swc/helpers': 0.5.3
     dev: false
 
-  /@can-it/nest@0.0.1-4:
-    resolution: {integrity: sha512-QkOxjEP6whHnwLF1WezDahaO0+C3/R6hrEIs7Ok/vhj2ZBiuMZZ4DTQXZHhsl2pWQEL4yxMIyCRRBSWAcMgJDw==}
+  /@can-it/nest@0.0.1-5:
+    resolution: {integrity: sha512-/iRiIQHWhfIvTvL1yC5JyDo7FEg7CoX9FWJPeT1haLC8EBYxGEWwUmf9ldRqiJZC4/C5fj/knTqdRNBuNx5xtA==}
     dependencies:
       '@can-it/core': 0.5.4
       tslib: 2.6.2
