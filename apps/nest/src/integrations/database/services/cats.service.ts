@@ -28,7 +28,9 @@ export class CatsService {
   }
 
   delete(id: string) {
+    const cat = this.cats.find(c => c.id === id);
     this.cats = this.cats.filter(c => c.id !== id);
-    return this.cats;
+
+    return cat;
   }
 }

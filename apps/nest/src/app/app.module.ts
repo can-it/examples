@@ -27,7 +27,7 @@ import { PolicyService } from '../integrations/database/services/policy.service'
         return {
           comparators: {
             action: new RelationComparator(
-              ['view', 'edit'],
+              ['view', 'edit', 'delete'],
               { edit: ['view'] }
             )
           },

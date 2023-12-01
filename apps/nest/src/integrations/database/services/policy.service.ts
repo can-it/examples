@@ -5,11 +5,10 @@ import { Injectable } from '@nestjs/common';
 export class PolicyService {
   private policy: PolicyState = {
     allow: [
-      ['view', 'cats'],
       ['edit', 'cats'],
-      ['delete', 'cats']
     ],
     deny: [
+      ['delete', 'cats'],
       ['edit', 'cats']
     ]
   }
