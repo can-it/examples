@@ -43,9 +43,7 @@ import { PolicyModule } from '../features/policies/policy.module';
           }
         }
       }
-    }),
-    // Register app guard
-    CanItModule.registerAppGuard()
+    })
   ],
 })
 export class AppModule {}

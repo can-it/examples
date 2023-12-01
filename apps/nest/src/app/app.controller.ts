@@ -1,7 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 
 import { AppService } from './app.service';
-import { CanIt } from '@can-it/nest';
 
 @Controller()
 export class AppController {
