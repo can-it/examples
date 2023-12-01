@@ -85,7 +85,7 @@
     "@angular/platform-browser-dynamic": "~17.0.0",
     "@angular/router": "~17.0.0",
     "@can-it/core": "^0.5.4",
-    "@can-it/nest": "0.0.1-5",
+    "@can-it/nest": "0.0.1-6",
     "@can-it/ngx": "^0.4.1",
     "@can-it/operators-nested": "^0.1.1",
     "@can-it/operators-relation": "^0.1.2",

@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
-import { CanItModule } from '@can-it/nest';
-import { PolicyState } from '@can-it/types';
+import { CAN_IT_CONFIGURATION, CanItConfiguration, CanItGuard } from '@can-it/nest';
 import { Request } from 'express';
 import { RelationComparator } from '@can-it/operators-relation';
 import { AppController } from './app.controller';
@@ -8,10 +7,11 @@ import { AppService } from './app.service';
 import { CatsModule } from '../features/cats/cats.module';
 import { DatabaseModule } from '../integrations/database/database.module';
 import { PolicyModule } from '../features/policies/policy.module';
+import { APP_GUARD, ModuleRef } from '@nestjs/core';
+import { PolicyService } from '../integrations/database/services/policy.service';
 
 @Module({
   imports: [
-    CanItModule,
     DatabaseModule,
 
     CatsModule,
@@ -20,30 +20,29 @@ import { PolicyModule } from '../features/policies/policy.module';
   controllers: [AppController],
   providers: [
     AppService,
-    // configure the can it options
-    ...CanItModule.withProviders({
-      comparators: {
-        action: new RelationComparator(
-          ['view', 'edit'],
-          { edit: ['view'] }
-        )
-      },
-      resolvers: {
-        ri: (req: Request) => req.params.id || req.path.replace(/\/$/, '').split('/').pop(),
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        policy: (_req: Request): PolicyState => {
-          return {
-            allow: [
-              // ['view', 'cats'],
-              ['edit', 'cats']
-            ],
-            deny: [
-              ['edit', 'cats']
-            ]
+    {
+      provide: CAN_IT_CONFIGURATION,
+      useFactory: (thisModule: ModuleRef): CanItConfiguration => {
+        const policyService = thisModule.get(PolicyService, { strict: false });
+        return {
+          comparators: {
+            action: new RelationComparator(
+              ['view', 'edit'],
+              { edit: ['view'] }
+            )
+          },
+          resolvers: {
+            ri: (req: Request) => req.params.id || req.path.replace(/\/$/, '').split('/').pop(),
+            policy: () => policyService.get()
           }
         }
-      }
-    })
+      },
+      inject: [ModuleRef]
+    },
+    {
+      provide: APP_GUARD,
+      useClass: CanItGuard
+    }
   ],
 })
 export class AppModule {}
