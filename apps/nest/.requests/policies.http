@@ -1,0 +1,35 @@
+GET {{host}}/policies
+###
+
+POST {{host}}/policies
+{{jsonContentType}}
+
+{
+  "policy": {
+    "allow": [
+      [
+        "view",
+        "cats"
+      ],
+      [
+        "edit",
+        "cats"
+      ],
+      [
+        "delete",
+        "cats"
+      ]
+    ],
+    "deny": [
+      [
+        "edit",
+        "cats"
+      ],
+      [
+        "delete",
+        "cats"
+      ]
+    ]
+  }
+}
+###

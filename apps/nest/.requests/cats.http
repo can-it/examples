@@ -1,0 +1,19 @@
+@catId = c2
+###
+
+GET {{host}}/cats
+###
+
+GET {{host}}/cats/{{catId}}
+###
+
+DELETE {{host}}/cats/{{catId}}
+###
+
+PATCH {{host}}/cats/{{catId}}
+{{jsonContentType}}
+
+{
+  "name": "New name {{$datetime iso8601}}"
+}
+###
