@@ -1,3 +1,4 @@
+
 GET {{host}}/policies
 ###
 
@@ -22,10 +23,10 @@ POST {{host}}/policies
     ],
     "deny": [
       [
-        "edit",
-        "cats"
-      ],
-      [
+      #   "edit",
+      #   "cats"
+      # ],
+      # [
         "delete",
         "cats"
       ]
