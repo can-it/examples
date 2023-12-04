@@ -29,13 +29,14 @@ export class PoliciesController {
   }
 
   @Delete(':actor')
-  @CanIt('DELETE', 'POLICIES')
+  @CanIt('delete', 'POLICIES')
   @UsePolicyResolver(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     (context: ExecutionContext, _thisModule: ModuleRef): PolicyState => {
       const req = context.switchToHttp().getRequest();
+
       return {
-        allow: req.params['actor'] === 'admin' ? [['DELETE', 'POLICIES']] : []
+        allow: req.params['actor'] === 'ADMIN' ? [['delete', 'POLICIES']] : []
       };
     }
   )
