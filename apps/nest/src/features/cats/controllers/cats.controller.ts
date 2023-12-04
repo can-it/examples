@@ -1,7 +1,15 @@
 import { CanIt, UseRiResolver } from '@can-it/nest';
-import { Body, Controller, Delete, Get, Param, Patch } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  ExecutionContext,
+  Get,
+  Param,
+  Patch
+} from '@nestjs/common';
 import { CatsService } from '../../../integrations/database/services/cats.service';
-import { Request } from 'express';
+import { ModuleRef } from '@nestjs/core';
 
 @Controller('cats')
 @CanIt('view')
@@ -23,11 +31,11 @@ export class CatsController {
   }
 
   // The using of @UseRiResolver bellow will return the "cats" as resource identitfy
-  // you can implement your logic base on request object.
-  // That return values will combine as the "view" action provided from CanIt controller scope above
+  // you can implement your logic base on context object or get provided service via the ModuleRef object.
+  // That return values will combine with the "view" action provided from CanIt controller scope above
   @UseRiResolver(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    (_req: Request) => 'cats'
+    (_context: ExecutionContext, _thisModule: ModuleRef) => 'cats'
   )
   @Patch(':id')
   update(@Param('id') id: string, @Body('name') name: string) {

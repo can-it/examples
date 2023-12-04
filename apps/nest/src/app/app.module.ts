@@ -1,6 +1,5 @@
-import { Module } from '@nestjs/common';
-import { CAN_IT_CONFIGURATION, CanItConfiguration, CanItGuard } from '@can-it/nest';
-import { Request } from 'express';
+import { ExecutionContext, Module } from '@nestjs/common';
+import { CanItConfiguration, CanItGuard, CanItModule } from '@can-it/nest';
 import { RelationComparator } from '@can-it/operators-relation';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -9,6 +8,25 @@ import { DatabaseModule } from '../integrations/database/database.module';
 import { PolicyModule } from '../features/policies/policy.module';
 import { APP_GUARD, ModuleRef } from '@nestjs/core';
 import { PolicyService } from '../integrations/database/services/policy.service';
+
+const canItConfiguration: CanItConfiguration = {
+  comparators: {
+    action: new RelationComparator(
+      ['view', 'edit', 'delete'],
+      { edit: ['view'] }
+    )
+  },
+  resolvers: {
+    ri: (context: ExecutionContext) => {
+      const req = context.switchToHttp().getRequest();
+      return req.params.id || req.path.replace(/\/$/, '').split('/').pop()
+    },
+    policy: (_context: ExecutionContext, thisModule: ModuleRef) => {
+      const policyService = thisModule.get(PolicyService, { strict: false });
+      return policyService.get();
+    }
+  }
+};
 
 @Module({
   imports: [
@@ -20,25 +38,7 @@ import { PolicyService } from '../integrations/database/services/policy.service'
   controllers: [AppController],
   providers: [
     AppService,
-    {
-      provide: CAN_IT_CONFIGURATION,
-      useFactory: (thisModule: ModuleRef): CanItConfiguration => {
-        const policyService = thisModule.get(PolicyService, { strict: false });
-        return {
-          comparators: {
-            action: new RelationComparator(
-              ['view', 'edit', 'delete'],
-              { edit: ['view'] }
-            )
-          },
-          resolvers: {
-            ri: (req: Request) => req.params.id || req.path.replace(/\/$/, '').split('/').pop(),
-            policy: () => policyService.get()
-          }
-        }
-      },
-      inject: [ModuleRef]
-    },
+    CanItModule.configure(canItConfiguration),
     {
       provide: APP_GUARD,
       useClass: CanItGuard
