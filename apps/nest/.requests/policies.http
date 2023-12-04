@@ -34,3 +34,7 @@ POST {{host}}/policies
   }
 }
 ###
+
+DELETE {{host}}/policies/replace-this-sentence-with-ADMIN-to-be-validated
+# DELETE {{host}}/policies/ADMIN
+###
