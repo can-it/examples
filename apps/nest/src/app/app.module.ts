@@ -3,11 +3,11 @@ import { CanItConfiguration, CanItGuard, CanItModule } from '@can-it/nest';
 import { RelationComparator } from '@can-it/operators-relation';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CatsModule } from '../features/cats/cats.module';
-import { DatabaseModule } from '../integrations/database/database.module';
-import { PolicyModule } from '../features/policies/policy.module';
+import { CatsModule } from './features/cats/cats.module';
+import { DatabaseModule } from './integrations/database/database.module';
+import { PolicyModule } from './features/policies/policy.module';
 import { APP_GUARD, ModuleRef } from '@nestjs/core';
-import { PolicyService } from '../integrations/database/services/policy.service';
+import { PolicyService } from './integrations/database/services/policy.service';
 
 const canItConfiguration: CanItConfiguration = {
   comparators: {
