@@ -25,11 +25,6 @@ export class CatsController {
   }
 
   @Get(':id')
-  @CanIt('view', 'cats')
-  getOne(@Param('id') id: string) {
-    return this.catsService.get(id);
-  }
-
   // The using of @UseRiResolver bellow will return the "cats" as resource identitfy
   // you can implement your logic base on context object or get provided service via the ModuleRef object.
   // That return values will combine with the "view" action provided from CanIt controller scope above
@@ -37,7 +32,12 @@ export class CatsController {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     (_context: ExecutionContext, _thisModule: ModuleRef) => 'cats'
   )
+  getOne(@Param('id') id: string) {
+    return this.catsService.get(id);
+  }
+
   @Patch(':id')
+  @CanIt('edit', 'cats')
   update(@Param('id') id: string, @Body('name') name: string) {
     return this.catsService.updateName(id, name);
   }
