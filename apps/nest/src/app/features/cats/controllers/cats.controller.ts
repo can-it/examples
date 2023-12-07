@@ -1,4 +1,4 @@
-import { CanIt, UseRiResolver } from '@can-it/nest';
+import { AllowTo, UseRiResolver } from '@can-it/nest';
 import {
   Body,
   Controller,
@@ -12,13 +12,13 @@ import { CatsService } from '../../../integrations/database/services/cats.servic
 import { ModuleRef } from '@nestjs/core';
 
 @Controller('cats')
-@CanIt('view')
+@AllowTo('view')
 export class CatsController {
   constructor(
     private catsService: CatsService
   ) {}
 
-  // This method will still be applied the guard from controller CanIt above
+  // This method will still be applied the guard from controller AllowTo above
   @Get()
   get() {
     return this.catsService.getAll();
@@ -37,13 +37,13 @@ export class CatsController {
   }
 
   @Patch(':id')
-  @CanIt('edit', 'cats')
+  @AllowTo('edit', 'cats')
   update(@Param('id') id: string, @Body('name') name: string) {
     return this.catsService.updateName(id, name);
   }
 
   @Delete(':id')
-  @CanIt('delete', 'cats')
+  @AllowTo('delete', 'cats')
   delete(@Param('id') id: string) {
     return this.catsService.delete(id);
   }

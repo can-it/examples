@@ -1,6 +1,9 @@
 @catId = c2
 ###
 
+GET {{host}}
+###
+
 GET {{host}}/cats
 ###
 

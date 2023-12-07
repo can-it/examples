@@ -8,7 +8,7 @@ import {
   Post
 } from '@nestjs/common';
 import { PolicyService } from '../../../integrations/database/services/policy.service';
-import { CanIt, UsePolicyResolver } from '@can-it/nest';
+import { AllowTo, UsePolicyResolver } from '@can-it/nest';
 import { ModuleRef } from '@nestjs/core';
 
 @Controller('policies')
@@ -29,7 +29,7 @@ export class PoliciesController {
   }
 
   @Delete(':actor')
-  @CanIt('delete', 'POLICIES')
+  @AllowTo('delete', 'POLICIES')
   @UsePolicyResolver(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     (context: ExecutionContext, _thisModule: ModuleRef): PolicyState => {
