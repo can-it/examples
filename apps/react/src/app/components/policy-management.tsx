@@ -13,7 +13,7 @@ export function PolicyManagement() {
         ['click', 'docs'],
       ]
     });
-  }, []);
+  }, [set]);
 
   const toggleDenyClick = () => {
     const newDenyClick = !denyClick;

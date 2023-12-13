@@ -24,7 +24,7 @@ export class ChildComponent implements OnInit, OnDestroy {
         ['click', 'document']
       ]
     });
-    this.sub = this.canIt.can(['view', 'document'])
+    this.sub = this.canIt.allowTo(['view', 'document'])
       .subscribe(can => this.correct = !can);
   }
 

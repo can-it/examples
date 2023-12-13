@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PolicyState } from '@can-it/core';
 import { PolicyStore } from '@can-it/ngx';
+import { PolicyState, Request } from '@can-it/types';
 import { Observable, first } from 'rxjs';
 
 @Component({
@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
         this.policyStore.set({ ...state, deny: (state.deny || []).concat([['click', 'documents']]) });
         return;
       }
-      this.policyStore.set({ ...state, deny: state.deny?.filter(p => p[0] !== 'click') });
+      this.policyStore.set({ ...state, deny: state.deny?.filter((p: Request) => p[0] !== 'click') });
     });
   }
 }
