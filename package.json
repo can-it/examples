@@ -86,7 +86,7 @@
     "@angular/router": "~17.0.0",
     "@can-it/core": "^1.0.0",
     "@can-it/nest": "^1.0.0",
-    "@can-it/ngx": "^1.0.0",
+    "@can-it/ngx": "^1.1.0",
     "@can-it/operators-nested": "^0.1.1",
     "@can-it/operators-relation": "^0.1.2",
     "@can-it/react": "^1.0.0",

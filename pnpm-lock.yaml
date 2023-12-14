@@ -39,8 +39,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0
       '@can-it/ngx':
-        specifier: ^1.0.0
-        version: 1.0.0(@angular/common@17.0.4)(@angular/core@17.0.4)
+        specifier: ^1.1.0
+        version: 1.1.0(@angular/common@17.0.4)(@angular/core@17.0.4)
       '@can-it/operators-nested':
         specifier: ^0.1.1
         version: 0.1.1
@@ -3130,8 +3130,8 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@can-it/ngx@1.0.0(@angular/common@17.0.4)(@angular/core@17.0.4):
-    resolution: {integrity: sha512-UHSJ/yglTE+a4rT+H62Dsb0gLFw7hwB6zNvvCQ+quvBwz90/Xdaag3b7P+0oOTepDiOQu8/RGAkU4zdPdqstIg==}
+  /@can-it/ngx@1.1.0(@angular/common@17.0.4)(@angular/core@17.0.4):
+    resolution: {integrity: sha512-LoG3X5vrbtbGHlwp+mjhoEc/nic0FHhP+PAL7P9b5R6Z1MKBN7U3KowJz5KWPyvbWvVGoCc99wOiAbCrlUHjeA==}
     peerDependencies:
       '@angular/common': ^16.2.0
       '@angular/core': ^16.2.0
